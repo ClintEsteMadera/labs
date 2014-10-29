@@ -9,7 +9,7 @@ In order to run this application, you need to have [Node.js](http://nodejs.org/)
 
 After making sure that node is in your PATH, just run:
 
-`node install`
+`npm install`
 
 `node index.js`
 
