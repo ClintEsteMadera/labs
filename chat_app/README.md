@@ -1,4 +1,4 @@
-Twitter Finder
+Chat App
 ====
 
 This application implements a (very) basic chat, using web sockets with Socket.io
