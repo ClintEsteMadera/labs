@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Twitter Finder - Search Twitter for tweets containing a specific word</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+	  form { background: #000; padding: 3px; position: fixed; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #tweets { list-style-type: none; margin: 0; padding: 0; }
+      #tweets li { padding: 10px 10px; }
+      #tweets li:nth-child(odd) { background: #eee; }
+    </style>
+  </head>
+  <body>
+	<h1>Twitter Finder - Search Twitter for tweets containing a specific word</h1>
+	<h3>Look for tweets containing:<h3>
+	<form action="">
+	  <input id="q" autocomplete="off" /><button>Go!</button>
+    </form>
+    <ul id="tweets"></ul>
+	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<script>
+		var socket = io();
+		$('form').submit(function() {
+			var query = $('#q').val();
+			if (query && query.trim()) {
+				socket.emit('search', query);
+				$('#tweets').empty();
+				return false;
+			}
+		});
+		socket.on('new_tweet_to_clients', function(msg) {
+			$('#tweets').append($('<li>').text(msg));
+		});
+	</script>
+  </body>
+</html>

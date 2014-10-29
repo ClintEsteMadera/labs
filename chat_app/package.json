@@ -1,0 +1,24 @@
+{
+  "name": "chat_app",
+  "version": "1.0.0",
+  "description": "Basic chat, using web sockets with Socket.io",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.10.0",
+    "socket.io": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jchiocchio/labs.git"
+  },
+  "author": "Jonathan Chiocchio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jchiocchio/labs/issues"
+  },
+  "homepage": "https://github.com/jchiocchio/labs"
+}
